@@ -1,96 +1,54 @@
-# wabot-aq
+<div align="center">
+<img src="https://i.imgur.com/4tRKOcz.png" 
+alt="Chitanda eru bot" border="0">
 
-Simple WhatsApp Bot
 
-## FOR TERMUX USER
+# **Whatsapp-Eru-bot**
 
-```bash
-> pkg update && pkg upgrade
-> pkg install git -y
-> pkg install nodejs -y
-> pkg install ffmpeg -y
-> pkg install imagemagick -y
-> git clone https://github.com/Nurutomo/wabot-aq
-> cd wabot-aq
-> npm install
-```
 
----------
+##  1![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white) [![NodeJs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
 
-## FOR WINDOWS/VPS/RDP USER
+> Forked Of Nurutomo/wabot-aq 
 
-* Download And Install Git [`Click Here`](https://git-scm.com/downloads)
-* Download And Install NodeJS [`Click Here`](https://nodejs.org/en/download)
-* Download And Install FFMPEG [`Click Here`](https://ffmpeg.org/download.html) (don't forget to path)
-* Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php) (if nulis want work,  checklist columns 1,2,3,5,6)
+## 🎗 Self-Hosting
 
-```bash
-> git clone https://github.com/Nurutomo/wabot-aq
-> cd wabot-aq
-> npm install
-```
+### ⛵ Prerequisites 
+- [Git](https://git-scm.com/) 
+- [Node.JS](https://nodejs.org/en/) 
+ - [FFMpeg](https://ffmpeg.org/download.html)
+ 
+ ## 🍀 Installation
+ 
+ 
+ ```js 
+ > git clone github.com/oreki-san/Eru-bot
+ > cd eru-bot
+ > npm install 
+ > node . [session-name] 
+ ```
+ ## Contribution
+ 
+ - As you know there are lots of missing files in /plugins and If you want to contribute please consider Doing PRs
+ 
+ 
+ ## Authors
+ 
+ 👤 **Nurutomo**
+ 
+ - Github 
+ -
+ 
+ Editor 
+ 👤  **JJ Oreki**
 
----------
 
-## Run
 
-```bash
-> node . [<session name>] (session name is optional)
-```
+## 📝 License 
 
----------
++ This project is [MIT License v3.0](https://github.com/Oreki-san/Eru-Bot/blob/main/LICENSE) licensed. 
 
-## Arguments `node . [--options] [<session name>]`
 
-### `--self`
 
-Activate self mode (Ignores other)
+## Show your support 
 
-### `--prefix <prefixes>`
-
-* `prefixes` are seperated by each character
-Set prefix
-
-### `--server`
-
-Used for [heroku](https://heroku.com/) or scan through website
-
-### `--big-qr`
-
-If small qr unicode doesn't support
-
-### `--restrict`
-
-Enables restricted plugins (which can lead your number to be **banned** if used too often)
-
-* Group Administration `add, kick`
-
-### `--img`
-
-Enable image inspector through terminal
-
-### `--nyimak`
-
-No bot, just print received messages and add users to database
-
-### `--test`
-
-**Development** Testing Mode
-
-### `--trace`
-
-```js
-conn.logger.level = 'trace'
-```
-
-### `--debug`
-
-```js
-conn.logger.level = 'debug'
-```
-
----------
-
-#### Powered By : [`XTEAM`](https://api.xteam.xyz)
-
-#### Author / Creator : [`Nurutomo`](https://GitHub.com/Nurutomo)
+Give a ⭐️ if this project helped you!
