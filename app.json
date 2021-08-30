@@ -2,7 +2,7 @@
   "name": "Eru-Bot",
   "description": "Lightweight WhatsApp Bot",
   "repository": "https://github.com/Oreki-san/Eru-Bot",
-  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "logo": "https://camo.githubusercontent.com/26019afd6757a7d4f2cfe0792a0109c3ac1bc34561402371c34aaafbe66fe5ba/68747470733a2f2f692e696d6775722e636f6d2f3474524b4f637a2e706e67",
   "keywords": ["bot", "whatsapp", "whatsapp-bot"],
 
 "buildpacks": [
