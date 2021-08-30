@@ -4,7 +4,7 @@
   "repository": "https://github.com/Oreki-san/Eru-Bot",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": ["bot", "whatsapp", "whatsapp-bot"]
-}
+},
 
 "buildpacks": [
       {
