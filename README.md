@@ -27,7 +27,12 @@ alt="Chitanda eru bot" border="0">
  
  
  ```js 
- > git clone github.com/oreki-san/Eru-bot
+ > update && apt upgrade
+ > apt install git -y
+ > apt install nodejs -y
+ > apt install ffmpeg -y
+ > apt install imagemagick -y
+ > git clone https://github.com/oreki-san/Eru-bot
  > cd eru-bot
  > npm install 
  > node . [session-name] 
