@@ -1,7 +1,7 @@
 let handler = async m => m.reply(`
 📪 *Info* 📪
 
-*Bot :* Nurutomo/wabot-aq
+*Bot :* Eru chitanda
 
 _Note : This is customised bot_
 _Edited by : Redbee🐝❤_
