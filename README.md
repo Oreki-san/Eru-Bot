@@ -39,7 +39,7 @@ alt="Chitanda eru bot" border="0">
  ```
  ##  🌝 **Contribution**
  
- - As you know there are lots of missing files in /plugins and If you want to contribute please consider Doing PRs
+ - As you know there are lots of missing files in /plugins and If you want to contribute please consider Doing PRs thank you
  
  
  ## 👥 Authors
