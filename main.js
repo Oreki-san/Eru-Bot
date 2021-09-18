@@ -3,6 +3,7 @@ let { WAConnection: _WAConnection } = require('@adiwajshing/baileys')
 let { generate } = require('qrcode-terminal')
 let syntaxerror = require('syntax-error')
 let simple = require('./lib/simple')
+let qrcode = require('qrcode')
 //  let logs = require('./lib/logs')
 let { promisify } = require('util')
 let yargs = require('yargs/yargs')
@@ -51,6 +52,8 @@ if (!opts['test']) setInterval(() => {
     lastJSON = JSON.stringify(global.DATABASE.data)
   }
 },480* 1000) // Save every minute
+if(opts['scan'])    conn.on('qr',qr => qrcode.toFile('./public/QR.png',qr))
+if(opts['scan']) require('./scan') (global.conn, PORT)
 if (opts['server']) require('./server')(global.conn, PORT)
 
 
