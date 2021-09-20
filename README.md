@@ -53,7 +53,7 @@ alt="Chitanda eru bot" border="0">
 * Github : https://github.com/Oreki-san
 * Twitter: [@haremgodoreki](https://twitter.com/@haremgodoreki)
 * Instagram : [@ig_oreki](https://instagram.com/ig_oreki)
-* WhatsApp : [Text me](wa.me/919002370263)
+* WhatsApp : [wa.me/919002370263]
 
 
 
