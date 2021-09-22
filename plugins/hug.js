@@ -2,7 +2,7 @@ let fetch = require('node-fetch')
 const axios = require('axios')
 
 let handler = async(m, { conn, text, usedPrefix }) => {
-    axios.get(`https://api.i-tech.id/anim/hug?key=selVHB-QcNIs3-DS6jjp-8BPCH9-IJIlhH`)
+    axios.get(`https://api.waifu.pics/sfw/hug`)
         .then((res) => {
             if (res.data.pesan) return conn.reply(m.chat, res.data.pesan, m)
                 // conn.sendFile(m.chat, x.thumb, 'text', `➸ *Title* : ${x.title}\n\n➸ *Quality* : ${x.quality}\n\n➸ *Rating* : ${x.rating}\n\n➸ *Link* : ${x.link}`, m)
