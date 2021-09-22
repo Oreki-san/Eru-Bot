@@ -4,8 +4,8 @@ let handler = async(m, { conn, text }) => {
     new Promise((resolve, reject) => {
         axios.get(`https://nekos.life/api/v2/img/kiss`)
             .then((res) => {
-                conn.sendFile(m.chat, res.data.url, '', '*@${m.sender.jid.split('@')[0]} Bit ${m.mentioned
-                .map((user) => (user === M.sender.jid ? 'Themselves' : `@${user.split('@')[0]}`))
+                conn.sendFile(m.chat, res.data.url, '', '*@${m.sender.jid.split('@')[0]} kissed ${m.mentioned
+                .map((user) => (user === m.sender.jid ? 'Themselves' : `@${user.split('@')[0]}`))
                 .join(', ')}*', m)
             })
             .catch(reject)
