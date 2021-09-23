@@ -13,13 +13,13 @@ handler.help = ['broadcastjadibot','bcbot'].map(v => v + ' <teks>')
 handler.tags = ['host']
 handler.command = /^(broadcast|bc)(jadi)?bot$/i
 handler.owner = true
-handler.mods = false
+handler.mods = true
 handler.premium = false
-handler.group = false
+handler.group = true
 handler.private = false
 
-handler.admin = false
-handler.botAdmin = false
+handler.admin = true
+handler.botAdmin = true
 
 handler.fail = null
 
