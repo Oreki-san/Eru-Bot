@@ -10,13 +10,13 @@ handler.help = ['broadcastgroup','bcgc'].map(v => v + ' <Text>')
 handler.tags = ['owner']
 handler.command = /^(broadcast|bc)(group|grup|gc)$/i
 handler.owner = true
-handler.mods = false
+handler.mods = true
 handler.premium = false
-handler.group = false
+handler.group = true
 handler.private = false
 
-handler.admin = false
-handler.botAdmin = false
+handler.admin = true
+handler.botAdmin = true
 
 handler.fail = null
 
