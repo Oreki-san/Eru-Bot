@@ -8,6 +8,6 @@ let handler = async(m, { conn }) => {
 }
 handler.help = ['neko']
 handler.tags = ['internet']
-handler.command = /^neko$/i
+handler.command = /^hug$/i
 
 module.exports = handler
