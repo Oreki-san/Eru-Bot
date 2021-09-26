@@ -33,7 +33,7 @@ let handler = async(m, { conn }) => {
 │ • #math <mode>
 │ • #guessthepicture
 │ • #Guess the song (Limit) (Premium)
- |  • #ttt
+|  • #ttt
 ╰────
 
 ╭─「 Exp & Limit 」
@@ -66,13 +66,13 @@ let handler = async(m, { conn }) => {
 │ • #hug
 │ • #lick
 │ • #pat
- |  •#bite
- |  •#cuddle
+|  •#bite
+|  •#cuddle
 ╰────
 
 ╭─「 Quotes 」
 │ • #quotes
- |  • #quotemaker (caption) | (name)
+|  • #quotemaker (caption) | (name)
 ╰────
 
 ╭─「 Admin 」
