@@ -22,23 +22,23 @@ let handler = async m => m.reply(`
 💠 *HELP SECTION 3* 🌀
 💫 *Section - Downloader* 
 *Command :* help-3
-*Aliases :* 
+*Aliases :* help media
 
 💠 *HELP SECTION 4* 🌀
 💫 *Section - owner* 
 *Command :* help-4
-*Aliases :* 
+*Aliases :* help owner
 
 
 💠 *HELP SECTION 5* 🌀
 💫 *Section - Admins* 
 *Command :* help-5
-*Aliases :* 
+*Aliases :* help admin
 
 💠 *HELP SECTION 6* 🌀
 💫Section - info
 *Command :* help-6
-*Aliases :*
+*Aliases :* help info
 
 
 `.trim()) // Tambah sendiri kalo mau
