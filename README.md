@@ -32,7 +32,7 @@ alt="Chitanda eru bot" border="0">
  > apt install nodejs -y
  > apt install ffmpeg -y
  > apt install imagemagick -y
- > git clone https://github.com/Oreki-san/Eru-bot
+ > git clone https://github.com/Oreki-san/Eru-Bot
  > cd Eru-Bot
  > npm install 
  > node . [session-name] 
@@ -66,3 +66,4 @@ alt="Chitanda eru bot" border="0">
 ## Show your support 
 
 Give a ⭐️ if this project helped you!
+ 
