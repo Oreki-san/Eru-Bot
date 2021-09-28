@@ -9,7 +9,7 @@ let handler = async(m, { conn }) => {
   if (!json.url) throw 'Error!'
 
   conn.sendFile(m.chat,json.url,'h.gif',`@${m.sender.split('@')[0]} bite ${m.mentionedJid.map((user)=>(user === m.sender)? 'themselves ': `@${user.split('@')[0]}`).join(', ')}`,m,false,
-  {  contextInfo :{mentionedJid : [  ...m.mentionedJid,m.sender ] }})
+  { mimetype: Mimetype.gif, contextInfo :{mentionedJid : [  ...m.mentionedJid,m.sender ] }})
   
 
 }
