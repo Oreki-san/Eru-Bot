@@ -1,3 +1,4 @@
+let Mimetype = require('@adiwajshing/baileys')
 let fetch = require('node-fetch')
 let handler = async(m, { conn }) => {
 
