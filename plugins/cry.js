@@ -1,20 +1,24 @@
-let fetch = require('node-fetch')
-let handler = async(m, { conn }) => {
+let fetch = require("node-fetch")
+const { sticker } = require('../lib/sticker')
+const { MessageType } = require('@adiwajshing/baileys')
 
-    if(m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-    if(!m.mentionedJid.length) m.mentionedJid.push(m.sender)
-  let res = await fetch('https://api.waifu.pics/sfw/cry')
-  if (!res.ok) throw await res.text()
+let handler = async (m, { conn}) => {
+  try {
+  let res = await fetch('https://tobz-api.herokuapp.com/api/cry?apikey=Tobzzz17')
   let json = await res.json()
-  if (!json.url) throw 'Error!'
-
-  conn.sendFile(m.chat,json.url,'h.gif',`@${m.sender.split('@')[0]} cried ${m.mentionedJid.map((user)=>(user === m.sender)? 'themselves ': `@${user.split('@')[0]}`).join(', ')}`,m,false,
-  {  contextInfo :{mentionedJid : [  ...m.mentionedJid,m.sender ] }})
-  
-
+  let { 
+result
+} = json
+let stiker = await sticker(null, result, 'Cry', '@SHIRAORI')
+  conn.sendMessage(m.chat, stiker, MessageType.sticker, {
+    quoted: m
+  })
+ } catch (e) {
+  }
 }
-handler.help = ['neko']
-handler.tags = ['internet']
-handler.command = /^cry$/i
+handler.help = ['cry']
+handler.tags = ['expression']
+handler.command = /^cry/i
 
 module.exports = handler
+© 2021 GitHub, Inc.
