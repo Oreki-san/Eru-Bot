@@ -21,4 +21,3 @@ handler.tags = ['expression']
 handler.command = /^cry/i
 
 module.exports = handler
-© 2021 GitHub, Inc.
