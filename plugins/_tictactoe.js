@@ -1,7 +1,7 @@
 let handler = m => m
 let debugMode = !1
 
-let winScore = 500
+let winScore = 5000
 let playScore = 50
 
 handler.before = function (m) {
@@ -13,7 +13,7 @@ handler.before = function (m) {
     let room = Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender) && room.state == 'PLAYING')
     if (room) {
         // m.reply(`[DEBUG]\n${parseInt(m.text)}`)
-        if (!/^([1-9]|(me)?nyerah|surr?ender)$/i.test(m.text)) return !0
+        if (!/^([1-9]|(me)?give up|surr?ender)$/i.test(m.text)) return !0
         isSurrender = !/^[1-9]$/.test(m.text)
         if (m.sender !== room.game.currentTurn) { // nek wayahku
             if (!isSurrender) return !0
