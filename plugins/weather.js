@@ -4,9 +4,8 @@ let handler = async(m, { conn, text }) => {
   
 let res = global.API('http://api.openweathermap.org', '/data/2.5/weather', {
     q: text,
-    name: nama,
     units: metric,
-    appid: 060a6bcfa19809c2cd4d97a212b19273,
+    appid: 34515da66e6933296a17efc1e895debe,
     language: tr
   })
 let text = `
