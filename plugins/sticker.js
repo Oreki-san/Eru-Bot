@@ -7,12 +7,12 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     let mime = (q.msg || q).mimetype || ''
     if (/image/.test(mime)) {
       let img = await q.download()
-      if (!img) throw `reply to image with caption *${usedPrefix + command}*`
+      if (!img) throw `reply to image with caption *{usedPrefix + command}*`
       stiker = await sticker(img, false, global.packname, global.author)
     } else if (/video/.test(mime)) {
       if ((q.msg || q).seconds > 11) return m.reply('10 seconds max!')
       let img = await q.download()
-      if (!img) throw `reply video/gif with caption *${usedPrefix + command}*`
+      if (!img) throw `reply video/gif with caption *{usedPrefix + command}*`
       stiker = await sticker(img, false, global.packname, global.author)
     } else if (/webp/.test(mime)) {
       let img = await q.download()
