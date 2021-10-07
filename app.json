@@ -5,6 +5,35 @@
   "logo": "https://camo.githubusercontent.com/26019afd6757a7d4f2cfe0792a0109c3ac1bc34561402371c34aaafbe66fe5ba/68747470733a2f2f692e696d6775722e636f6d2f3474524b4f637a2e706e67",
   "keywords": ["bot", "whatsapp", "whatsapp-bot"],
 
+"success_url": "/",
+    "env": {
+        "PREFIX": {
+            "description": "Prefix of your bot"
+        },
+        "SESSION": {
+            "description": "A string for the session to be classified and to get access to the server endpoints"
+        },
+        "MODS": {
+            "description": "The phone numbers of the users who you want to be admin for the bot (should be in international format without + and multiple numbers must be separated by a comma \",\")",
+            "required": false
+        },
+        "CRON": {
+            "description": "Cron string to clear chats in a cycle",
+            "required": false
+        },
+        "MONGO_URI": {
+            "description": "A secret String for Mongodb Connection.(Required)"
+        },
+        "GOOGLE_API_KEY": {
+            "description": "Google API key for Google searches for MODS (Not Required)",
+            "required": false
+        },
+        "CHAT_BOT_URL": {
+            "description": "BrainShop API Brain url",
+            "required": false
+        }
+    },
+
 "buildpacks": [
       {
         "url": "heroku/nodejs"
