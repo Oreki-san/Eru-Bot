@@ -1,14 +1,11 @@
 let handler = async m => m.reply(`
-╭─「 Donasi • Pulsa 」
-│ • Indosat Ooredoo [081515860089]
-│ • Telkomsel [081334177340]
-╰────
 
-╭─「 Donasi • Non Pulsa 」
-│ • Gopay, OVO, Dana [081515860089]
-│ • https://saweria.co/Nurutomo
+
+╭─「 Support link」
+│ • Gpay, OVO, Donate [919002370263]
+│ • https://github.com/Oreki-san/Eru-Bot
 ╰────
-`.trim()) // Tambah sendiri kalo mau
+`.trim()) // give a star if it helped u
 handler.help = ['donasi']
 handler.tags = ['info']
 handler.command = /^dona(te|si)$/i
