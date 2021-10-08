@@ -4,6 +4,7 @@ let handler = async m => m.reply(`
 
 🌼 Here's Command Menu 🌼
 ➡️you can go to Each Section With adding Section's number after help
+There are many hidden commands explore on ur own
 
 Ex : #help 1
 
