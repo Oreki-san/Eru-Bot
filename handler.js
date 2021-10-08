@@ -306,17 +306,23 @@ module.exports = {
       case 'add':
       case 'remove':
         if (chat.welcome) {
-          for (let user of participants) {
-            let pp = './src/avatar_contact.png'
-            try {
-              pp = await this.getProfilePicture(user)
-            } catch (e) {
-            } finally {
-              text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', this.getName(jid)) :
-                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-              this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
-                contextInfo: {
-                  mentionedJid: [user]
+          let groupMetadata = await this.groupMetadata(jid)
+            for (let user of participants) {
+              // let pp = './src/avatar_contact.png'
+              let pp = 'https://images.wallpaperscraft.com/image/single/girl_shell_hare_167320_300x168.jpg'
+              try {
+                pp = await uploadImage(await (await fetch(await this.getProfilePicture(user))).buffer())
+              } catch (e) {
+              } finally {
+              text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'welcome, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc) :
+                  (chat.sBye || this.bye || conn.bye || 'See you later, @user!')).replace(/@user/g, '@' + user.split`@`[0])
+                let wel = `https://hardianto-chan.herokuapp.com/api/tools/welcomer2?name=${encodeURIComponent(this.getName(user))}&descriminator=${user.split(`@`)[0].substr(-5)}&totalmem=${encodeURIComponent(groupMetadata.participants.length)}&namegb=${encodeURIComponent(this.getName(jid))}&ppuser=${pp}&background=https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg&apikey=hardianto`
+                let lea = `https://hardianto-chan.herokuapp.com/api/tools/leave2?name=${encodeURIComponent(this.getName(user))}&descriminator=${user.split(`@`)[0].substr(-5)}&totalmem=${encodeURIComponent(groupMetadata.participants.length)}&namegb= ${encodeURIComponent(this.getName(jid))}&ppuser=${pp}&background=https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg&apikey=hardianto`
+  
+                this.sendFile(jid, action === 'add' ? wel : lea, 'pp.jpg', text, null, false, {
+                  thumbnail: await (await fetch(action === 'add' ? wel : lea)).buffer(),
+                  contextInfo: {
+                    mentionedJid: [user]
                 }
               })
             }
