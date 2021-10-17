@@ -21,7 +21,6 @@ const db = mongoose.connection
 mongoose.connect(encodeURI('mongodb+srv://billa:billasenpai@cluster0.6bhqd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')), {
     useNewUrlParser: true,
     useUnifiedTopology: true
-   // useCreateIndex: true
 };
 
 
@@ -48,7 +47,6 @@ if (!global.DATABASE.data.stats) global.DATABASE.data.stats = {}
 if (!global.DATABASE.data.stats) global.DATABASE.data.msgs = {}
 global.conn = new WAConnection()
 let authFile = `${opts._[0] ||ID || 'session'}.data.json`
-if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
 if (opts['trace']) conn.logger.level = 'trace'
 if (opts['debug']) conn.logger.level = 'debug'
 if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: false }))
@@ -104,6 +102,7 @@ if (opts['test']) {
     }
   }
 
+if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
   conn.sendMessage = async (chatId, content, type, opts = {}) => {
     let message = await conn.prepareMessageContent(content, type, opts)
     let waMessage = conn.prepareMessageFromContent(chatId, message, opts)
