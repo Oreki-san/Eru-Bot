@@ -1,3 +1,4 @@
+require('dotenv').config();
 require('./config.js')
 let { WAConnection: _WAConnection } = require('@adiwajshing/baileys')
 let { generate } = require('qrcode-terminal')
@@ -11,9 +12,17 @@ let Readline = require('readline')
 let cp = require('child_process')
 let path = require('path')
 let fs = require('fs')
-
+const {session} = require('./Database/models')
 let rl = Readline.createInterface(process.stdin, process.stdout)
 let WAConnection = simple.WAConnection(_WAConnection)
+const mongoose = require('mongoose');
+const db = mongoose.connection
+
+mongoose.connect(encodeURI('mongodb+srv://billa:billasenpai@cluster0.6bhqd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')), {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+   // useCreateIndex: true
+};
 
 
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
@@ -25,8 +34,9 @@ const PORT = process.env.PORT || 3000
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 
 global.prefix = new RegExp('^[' + (opts['prefix'] || '‎xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
+const ID = process.env.ID;//'nekoda'//
 
-global.DATABASE = new (require('./lib/database'))(`${opts._[0] ? opts._[0] + '_' : ''}database.json`, null, 2)
+global.DATABASE = new (require('./lib/database'))(`${ID || opts._[0] ?  ID + '_' || opts._[0]  + '_' : ''}database.json`, null, 2)
 if (!global.DATABASE.data.users) global.DATABASE.data = {
   users: {},
   chats: {},
@@ -37,7 +47,7 @@ if (!global.DATABASE.data.chats) global.DATABASE.data.chats = {}
 if (!global.DATABASE.data.stats) global.DATABASE.data.stats = {}
 if (!global.DATABASE.data.stats) global.DATABASE.data.msgs = {}
 global.conn = new WAConnection()
-let authFile = `${opts._[0] || 'session'}.data.json`
+let authFile = `${opts._[0] ||ID || 'session'}.data.json`
 if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
 if (opts['trace']) conn.logger.level = 'trace'
 if (opts['debug']) conn.logger.level = 'debug'
@@ -55,6 +65,16 @@ if (!opts['test']) setInterval(() => {
 if(opts['scan'])    conn.on('qr',qr => qrcode.toFile('./public/QR.png',qr))
 if(opts['scan']) require('./scan') (global.conn, PORT)
 if (opts['server']) require('./server')(global.conn, PORT)
+// db.once('open',async ()=>{
+//   console.log('Connected to database')
+
+// const find = await session.findOne({ID})
+// if (find===null) {
+// console.log('id nahi mili ok')
+// } else {
+// fs.writeFileSync(`./${ID}.data.json`,JSON.stringify(find.session,null,'\t'))
+// }
+// })
 
 
 
@@ -103,11 +123,55 @@ if (opts['test']) {
     global.DATABASE.save()
     process.send(line.trim())
   })
-  conn.connect().then(() => {
+
+//   db.once('open',async ()=>{
+//     console.log('Connected to database')
+
+// const find = await session.findOne({ID})
+// // console.log(find)
+// if (find===null) {
+//   console.log('id nahi mili ok')
+// } else {
+//   fs.writeFileSync(`./${ID}.data.json`,JSON.stringify(find.session,null,'\t'))
+// }
+
+
+//   //  if(find===null) await new session({ID, session : conn.base64EncodedAuthInfo }).save() //.then(s => console.log(s)).catch(e=> console.error(e));
+//   // else fs.writeFileSync(`./${ID}.data.json`,JSON.stringify(find.session,null,'\t'))
+// })
+// console.log(conn.base64EncodedAuthInfo())
+conn.connect().then(async() => {
     fs.writeFileSync(authFile, JSON.stringify(conn.base64EncodedAuthInfo(), null, '\t'))
-    global.timestamp.connect = new Date
-  })
+    // console.log(conn.base64EncodedAuthInfo())
+try {
+  const search = await session.findOne({ID})
+  if(search === null) await session({ID,session : conn.base64EncodedAuthInfo()}).save()
+} catch (e) {
+  console.error(e)
 }
+    global.timestamp.connect = new Date
+    console.log('pehle me db open toh karu bahi')
+
+  })
+} 
+/*console.log(conn.base64EncodedAuthInfo())
+db.once('open',async ()=>{
+  try {
+    console.log('again connected to db')
+    const search = await session.findOne({ID})
+    if(search === null){
+      console.log('id nahi mili toh naya bana raha hu me')
+      await new session({ID,session :conn.base64EncodedAuthInfo()}).save()
+    }
+   else {
+    console.log('ID mil gayi ab update kar deta hu')
+     await session.updateOne({ID},{$set : {session : conn.base64EncodedAuthInfo()}})
+   }   
+  } catch (error) {
+    console.error(error)
+  }
+ 
+})*/ 
 process.on('uncaughtException', console.error)
 // let strQuot = /(["'])(?:(?=(\\?))\2.)*?\1/
 
@@ -211,6 +275,8 @@ async function _quickTest() {
   if (!global.support.ffmpegWebp) conn.logger.warn('Stickers may not animated without libwebp on ffmpeg (--enable-ibwebp while compiling ffmpeg)')
   if (!global.support.convert) conn.logger.warn('Stickers may not work without imagemagick if libwebp on ffmpeg doesnt isntalled (pkg install imagemagick)')
 }
+
+
 
 /*_quickTest()
   .then(() => conn.logger.info('Quick Test Done'))
