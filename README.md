@@ -17,7 +17,7 @@ alt="Chitanda eru bot" border="0">
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Oreki-san/Eru-Bot)
 
 ### 📌 Hosting Guide
-- [Eru-Guide](https://github.com/Oreki-san/Eru-Guide/blob/main/README.md)
+- Click Here > [Eru-Guide](https://github.com/Oreki-san/Eru-Guide/blob/main/README.md)
  
  ## 🍀 Installation
  
