@@ -1,13 +1,12 @@
 console.log('Starting...')
 const mongoose = require('mongoose')
 require('dotenv').config();
-const ID = process.env.ID//'chotaku';//'nekoda'//
+const ID = process.env.ID
 console.log('index me id :' +ID)
 const {session} = require('./Database/models')
 mongoose.connect(encodeURI(process.env.MONGO_URI)), {
     useNewUrlParser: true,
     useUnifiedTopology: true
-   // useCreateIndex: true
 };
 const db = mongoose.connection
 let { spawn } = require('child_process')
@@ -21,7 +20,7 @@ db.once('open',async ()=>{
 
 const find = await session.findOne({ID})
 if (find===null) {
-console.log('id nahi mili ok')
+console.log('no session Found')
 } else {
 fs.writeFileSync(`./${ID}.data.json`,JSON.stringify(find.session,null,'\t'))
 }
@@ -74,4 +73,8 @@ function start(file) {
   // console.log(p)
 }
 
-start('main.js')
+setTimeout(() => {
+  console.log('10 SEC')
+  start('main.js')
+}, 10000);
+
