@@ -18,7 +18,7 @@ let WAConnection = simple.WAConnection(_WAConnection)
 const mongoose = require('mongoose');
 const db = mongoose.connection
 
-mongoose.connect(encodeURI('mongodb+srv://billa:billasenpai@cluster0.6bhqd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')), {
+mongoose.connect(encodeURI(process.env.MONGO_URI)), {
     useNewUrlParser: true,
     useUnifiedTopology: true
 };
