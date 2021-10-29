@@ -1,0 +1,9 @@
+> update && apt upgrade
+> apt install git -y
+> apt install nodejs -y
+> apt install ffmpeg -y
+> apt install imagemagick -y
+> git clone https://github.com/Oreki-san/Eru-Bot
+> cd Eru-Bot
+> npm install 
+> node . [session-name] 
